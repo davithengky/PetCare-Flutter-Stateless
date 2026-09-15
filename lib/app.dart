@@ -11,8 +11,26 @@ class PetCareApp extends StatelessWidget {
       title: 'PetCare',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
-      initialRoute: AppRoutes.splash,
+      initialRoute: AppRoutes.login,
       onGenerateRoute: AppRoutes.generateRoute,
+      
+      builder: (context, child) {
+        return Container(
+          color: const Color(0xFFDDE3E8), // backdrop abu di luar "HP"
+          child: Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 480),
+              child: Container(
+                clipBehavior: Clip.antiAlias,
+                decoration: const BoxDecoration(
+                  color: AppColors.background,
+                ),
+                child: child,
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }

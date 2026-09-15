@@ -67,10 +67,10 @@ class HomeScreen extends StatelessWidget {
                     itemCount: 6,
                     separatorBuilder: (_, _) => const SizedBox(width: 8),
                     itemBuilder: (context, i) {
-                      const services = [
+                      const services = <(IconData, String, String?)>[
                         (Icons.chat_bubble_outline_rounded, 'Konsultasi', AppRoutes.consultation),
                         (Icons.local_hospital_outlined, 'Booking\nKlinik', AppRoutes.bookingKlinik),
-                        (Icons.content_cut_rounded, 'Grooming', AppRoutes.grooming),
+                        (Icons.content_cut_rounded, 'Grooming', null),
                         (Icons.storefront_outlined, 'Pet Shop', AppRoutes.petShop),
                         (Icons.vaccines_outlined, 'Vaksin &\nObat', AppRoutes.healthRecord),
                       ];
@@ -79,7 +79,7 @@ class HomeScreen extends StatelessWidget {
                         return ServiceCard(
                           icon: s.$1,
                           label: s.$2,
-                          onTap: () => Navigator.pushNamed(context, s.$3),
+                          onTap: s.$3 == null ? () {} : () => Navigator.pushNamed(context, s.$3!),
                         );
                       }
                       return const ServiceCard(

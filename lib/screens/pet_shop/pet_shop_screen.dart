@@ -18,7 +18,7 @@ class PetShopScreen extends StatelessWidget {
           IconButton(
             iconSize: 22,
             icon: const Icon(Icons.shopping_cart_outlined),
-            onPressed: () => Navigator.pushNamed(context, AppRoutes.cart),
+            onPressed: () {},
           ),
         ],
       ),
